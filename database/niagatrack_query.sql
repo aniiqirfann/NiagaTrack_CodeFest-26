@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
     user_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    phone_number VARCHAR(20) NOT NULL UNIQUE, -- Menggantikan email kepada nombor telefon
+    phone_number VARCHAR(20) NOT NULL UNIQUE, 
     password_hash TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -75,7 +75,7 @@ CREATE INDEX idx_expenses_user_date
 INSERT INTO users (name, phone_number, password_hash)
 VALUES (
     'Kak Siti',
-    '123456789', -- Contoh nombor telefon merujuk UI
+    '123456789', 
     'DEMO_HASH_REPLACE_WITH_REAL_HASH'
 );
 
@@ -162,10 +162,6 @@ SELECT
 FROM daily_sales
 CROSS JOIN daily_expenses;
 
-
--- ============================================
--- 13. ALL TRANSACTIONS FOR THE RECORDS PAGE
--- ============================================
 SELECT
     'sales' AS transaction_type,
     j.sale_id AS transaction_id,
